@@ -7,11 +7,14 @@ function onEdit(e: OnEditEvent) {
 }
 
 function clickFinishComment(){
-  const result = Browser.inputBox(`コメントを記入した行を入力してokをクリックしてください \n ss`, Browser.Buttons.OK_CANCEL);
+  const history = new History()
+  const row = history.getLastEditedRow()
+
+  const result = Browser.inputBox(`コメントを記入した行を入力してokをクリックしてください \n 例 ${row}`, Browser.Buttons.OK_CANCEL);
 
   if(result === "cancel"){
     Logger.log("キャンセルされました")
   } 
-  const result2 = Browser.inputBox(`行数 ${result}`, Browser.Buttons.OK_CANCEL);
+  const result2 = Browser.inputBox(`行数 ${ JSON.stringify(result)}`, Browser.Buttons.OK_CANCEL);
 
 }

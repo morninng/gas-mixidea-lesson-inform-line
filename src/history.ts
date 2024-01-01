@@ -32,10 +32,6 @@ export class History{
     this.addOneLine(e, data)
   }
 
-  public getLastHistory(){
-
-  }
-
   private addOneLine(e, data: UserLogData){
     const sheet = e.source.getSheetByName(SHEET_NAME_HISTORY);
     sheet.insertRowBefore(2)
@@ -52,8 +48,13 @@ export class History{
      sheet.getRange('A2:D2').setValues([newData]);
   }
 
-  private writeHistoryData(){
-    
+
+
+  public getLastEditedRow(){
+    const spreadSheet = SpreadsheetApp.getActiveSpreadsheet()
+    const sheet = spreadSheet.getSheetByName(SHEET_NAME_HISTORY);
+    return sheet?.getRange('C2').getValue()
   }
 
+  
 }
