@@ -15,6 +15,18 @@ export class Comment {
     // const sss = comment[]
     const homework = comment[13]
     const homeworkToSend = `■宿題 \n ${homework}`
+
+    const groupName = comment[2]
+    const lessonDate = comment[3]
+    const teacher = comment[5]
+    const context = comment[9]
+    const impression = comment[10]
+    const challenge = comment[11]
+    const suggestion = comment[12]
+    const commentSend = `レッスン報告 - ${groupName} -  ${Utilities.formatDate(lessonDate, "JST", "M月d日")}` + 
+    `\n ■講師 - ${teacher}` + `\n\n■内容\n ${context}` + `\n\n■感想\n ${impression}` + `\n\n■課題\n ${challenge}` + `\n\n■次回への提案 \n ${suggestion}`
+
+    this.sendLine(commentSend)
     this.sendLine(homeworkToSend)
 
   }
