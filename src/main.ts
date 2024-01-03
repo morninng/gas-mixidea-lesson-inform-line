@@ -1,5 +1,6 @@
 type OnEditEvent = GoogleAppsScript.Events.SheetsOnEdit;
 import {History } from "./history"
+import { Comment } from './comment'
 
 function onEdit(e: OnEditEvent) {
     const history = new History()
@@ -34,4 +35,9 @@ function clickFinishComment(){
   Browser.msgBox(`${JSON.stringify(response)}`, Browser.Buttons.OK_CANCEL);
 
 
+}
+
+function send(){
+  const coomment = new Comment()
+  coomment.send()
 }

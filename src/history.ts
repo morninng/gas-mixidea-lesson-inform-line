@@ -56,5 +56,5 @@ export class History{
     return sheet?.getRange('C2').getValue()
   }
 
-  
+
 }
